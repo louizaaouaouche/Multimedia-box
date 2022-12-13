@@ -29,6 +29,6 @@ void Multimedia::setPathname(std::string pathname){
 }
 
 //Afficheur
-void Multimedia::print(std::ostream & s){
-    s << "Name:" << this->name << ". Pathname: "<< this->pathname << std::endl;
+void Multimedia::print(std::ostream & s)const{
+    s << "Name:"  << this->name << ". Pathname: "<< this->pathname << std::endl;
 }

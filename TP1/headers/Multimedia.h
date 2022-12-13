@@ -26,7 +26,7 @@ public:
     void setPathname(std::string pathname);
 
     //Afficheur
-    void print(std::ostream & ostream);
+    virtual void print(std::ostream & ostream)const;
 };
 
 #endif

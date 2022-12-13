@@ -1,5 +1,2 @@
--Wall 
--g 
--MM 
-MyClass.cpp 
-main.cpp 
+Multimedia.o: src/Multimedia.cpp src/../headers/Multimedia.h
+main.o: main.cpp headers/Multimedia.h
