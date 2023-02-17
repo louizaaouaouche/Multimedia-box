@@ -63,7 +63,7 @@ On traite de manière uniforme une liste comprenant à la fois des photos et des
 - **Parmi les classes précédemment écrites quelles sont celles qu'il faut modifier afin qu'il n'y ait pas de fuite mémoire quand on détruit les objets ? **
   - Seule la classe ```Film``` a un attribut alloué sur le tas. Il est important de s'assurer qu'il n'y ait pas de fuite de mémoire en appelant delete dans un destructeur pour la classe Film pour libérer la mémoire allouée avec new (tableau des durées).
 
-- ** La copie d'objet peut également poser problème quand ils ont des variables d'instance qui sont des pointeurs. Quel est le problème et quelles sont les solutions ?**
+- **La copie d'objet peut également poser problème quand ils ont des variables d'instance qui sont des pointeurs. Quel est le problème et quelles sont les solutions ?**
   - Pour la copie d'objet, par défaut il n'y que copie de pointeurs (qui vont donc pointer sur le même objet). Pour cela, on peut définir un constructeur de copie et un opérateur d'affectation qui assurent une copie de l'objet du tableau de durées. 
 
 ## 8e étape. Créer des groupes
@@ -75,7 +75,8 @@ On traite de manière uniforme une liste comprenant à la fois des photos et des
 
 
 ## 10e étape. Gestion cohérente des données
-
+- **Les méthodes précédentes permettent d'assurer la cohérence de la base de données car quand on crée un objet on l'ajoute à la table adéquate. Par contre, ce ne sera pas le cas si on crée un objet directement avec new (il n'appartiendra à aucune table). Comment peut-on l'interdire, afin que seule la classe servant à manipuler les objets puisse en créer de nouveaux ?**
+  -  Afin que la seule classe servant à manipuler les objets puisse en créer de nouveau il faut déclarer les constructeurs de classe ```Photo```, ```Video```, ```Film``` et ```Group``` en ```protected``` et également déclarer la classe Managing en tant que friend de celles-ci.
 ## 11e étape. Client / serveur
 
 ## 12e étape. Sérialisation / désérialisation
