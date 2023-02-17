@@ -72,7 +72,7 @@ On traite de manière uniforme une liste comprenant à la fois des photos et des
   - En Java, on utilise des références (proches des pointeurs), cela dit, on ne gère pas manuellement la durée de vie des objets.
 
 ## 9e étape. Gestion automatique de la mémoire
-
+Ajout des smarts pointers (shared_ptr).
 
 ## 10e étape. Gestion cohérente des données
 - **Les méthodes précédentes permettent d'assurer la cohérence de la base de données car quand on crée un objet on l'ajoute à la table adéquate. Par contre, ce ne sera pas le cas si on crée un objet directement avec new (il n'appartiendra à aucune table). Comment peut-on l'interdire, afin que seule la classe servant à manipuler les objets puisse en créer de nouveaux ?**
