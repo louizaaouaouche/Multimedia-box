@@ -1,8 +1,14 @@
+/**
+ * @file Photo.h
+ * @author Louiza AOUAOUCHE
+ */
 #ifndef PHOTO_H
 #define PHOTO_H
 
 #include <string>
 #include <iostream>
+#include <memory>
+#include "Multimedia.h"
 
 class Photo:public Multimedia{
 private:
@@ -17,7 +23,10 @@ public:
     };
 
     //Destructeur
-    ~Photo();
+    ~Photo(){
+        std::cout << "Suppression de photo " << getName() << " - ok\r" << std::endl;
+    };
+    
 
     //Getters
     double getLatitude()const{
@@ -47,4 +56,8 @@ public:
         system(syscall.c_str());
     }
 };
+
+//smart pointer
+using PhotoPtr = std::shared_ptr<Photo>; 
+
 #endif

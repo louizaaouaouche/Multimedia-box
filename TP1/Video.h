@@ -1,8 +1,15 @@
+/**
+ * @file Video.h
+ * @author Louiza AOUAOUCHE
+ */
+
 #ifndef VIDEO_H
 #define VIDEO_H
 
 #include <string>
 #include <iostream>
+#include <memory>
+#include "Multimedia.h"
 
 class Video:public Multimedia{
 private:
@@ -16,7 +23,9 @@ public:
     };
 
     //Destructeur
-    ~Video();
+    ~Video(){
+        std::cout << "Suppression de video " << getName() << " - ok\r" << std::endl;
+    };
     
     //Getters
     unsigned int getDuration()const{
@@ -40,5 +49,8 @@ public:
         system(syscall.c_str());
     }
 };
+
+//smart pointer
+using VideoPtr = std::shared_ptr<Video>;
 
 #endif

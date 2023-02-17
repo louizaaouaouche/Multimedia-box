@@ -1,3 +1,7 @@
+/**
+ * @file Multimedia.cpp
+ * @author Louiza AOUAOUCHE
+ */
 #include "Multimedia.h"
 
 //Constructeurs
