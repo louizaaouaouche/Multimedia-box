@@ -71,44 +71,44 @@ public:
      * @param name
      * @return
      */
-    MultimediaPtr searchMultimedia(std::string name) const;
+    MultimediaPtr searchMultimedia(std::string name , std::ostream & ostream) const;
 
     /**
      * @brief affichage d'un objet multimedia à partir de son nom
      * @param name
      */
-    void printMultimedia(std::string name) const;
+    void printMultimedia(std::string name, std::ostream & ostream) const;
 
     /**
      * @brief Recherche d'un groupe à partir de son nom
      * @param name
      * @return GroupPtr
      */
-    GroupPtr searchGroup(std::string name) const;
+    GroupPtr searchGroup(std::string name, std::ostream & ostream) const;
 
     /**
      * @brief Affichage d'un groupe à partir de son nom
      * @param name
      */
-    void printGroup(std::string name) const;
+    void printGroup(std::string name, std::ostream & ostream) const;
 
     /**
      * @brief jouer un objet multimedia
      * @param name
      */
-    void play(std::string name) const;
+    void play(std::string name, std::ostream & ostream) const;
 
     /**
      * @brief supprie un objet multimedia à partir de son nom
      * @param name
      */
-    void removeMultimedia(std::string name);
+    void removeMultimedia(std::string name, std::ostream & ostream);
 
     /**
      * @brief supprime un groupe à partir de son nom
      * @param name
      */
-    void removeGroup(std::string name);
+    void removeGroup(std::string name, std::ostream & ostream);
 };
 
 #endif // MANAGING_H

@@ -36,10 +36,10 @@ GroupPtr Managing::createGroup(std::string name){
     return group;
 }
 
-MultimediaPtr Managing::searchMultimedia(std::string name) const{
+MultimediaPtr Managing::searchMultimedia(std::string name , std::ostream & ostream) const{
     auto idx = multimediasTab.find(name); 
-    if (idx == multimediasTab.end()){ //on arrive à la fin = on a rien trouvé
-        std::cout << "Error not found";
+    if (idx == multimediasTab.end()){ 
+        ostream << "Erreur: Multimedia introuvable.";
         return nullptr;
     } else {
         
@@ -47,57 +47,57 @@ MultimediaPtr Managing::searchMultimedia(std::string name) const{
     }
 }
 
-void Managing::printMultimedia(std::string name) const{
+void Managing::printMultimedia(std::string name , std::ostream & ostream) const{
     auto idx = multimediasTab.find(name);
     if (idx == multimediasTab.end()){ 
-        std::cout  << "Error not found";
+        ostream << "Erreur : Multimedia introuvable.";
     } else {
         return idx -> second -> print(std::cout);
     }
 }
 
-GroupPtr Managing::searchGroup(std::string name) const{
+GroupPtr Managing::searchGroup(std::string name, std::ostream & ostream) const{
     auto idx = groupsTab.find(name);
     if (idx == groupsTab.end()){
-        std::cout  << "Error not found";
+        ostream << "Erreur : groupe introuvable";
         return nullptr;
     } else {
         return idx -> second ;
     }
 }
 
-void Managing::printGroup(std::string name) const{
+void Managing::printGroup(std::string name,std::ostream & ostream) const{
     auto idx = groupsTab.find(name);
     if (idx == groupsTab.end()){
-        std::cout << "Error not found";
+        ostream << "Erreur : groupe introuvable";
     } else {
         idx -> second -> printGroup(std::cout);
     }
 }
 
-void Managing::play(std::string name) const{
+void Managing::play(std::string name, std::ostream & ostream) const{
     auto idx = multimediasTab.find(name);
     if (idx == multimediasTab.end()){
-        std::cout  << "Error not found";
+        ostream  << "Erreur : Multimedia introuvable";
     } else {
         idx -> second -> play();
     }
 
 }
 
-void Managing::removeMultimedia(std::string name){
+void Managing::removeMultimedia(std::string name, std::ostream & ostream){
     auto idx = multimediasTab.find(name);
     if (idx == multimediasTab.end()){
-        std::cout  << "Error not found"; 
+        ostream  << "Erreur : Multimedia introuvable"; 
     } else {
         multimediasTab.erase(idx);
     } 
 }
 
-void Managing::removeGroup(std::string name){
+void Managing::removeGroup(std::string name, std::ostream & ostream){
     auto group = groupsTab.find(name);
     if (group == groupsTab.end()){
-        std::cout  << "Error not found";
+       ostream << "Erreur : Groupe introuvable";
     } else {
         groupsTab.erase(group); 
     }

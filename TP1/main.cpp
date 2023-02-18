@@ -3,7 +3,7 @@
  * @author Louiza AOUAOUCHE
  */
 
-#define VERSION_2
+#define VERSION_AVEC_SERVEUR
 
 #include <iostream>
 #include <vector>
@@ -15,7 +15,7 @@
 #include "Managing.h"
 using namespace std;
 
-#ifdef VERSION_1
+#ifdef VERSION_SANS_SERVEUR
 int main(int argc, const char* argv[]){
     /*
     //PART 1 to 3
@@ -103,20 +103,108 @@ int main(int argc, const char* argv[]){
     group->push_back(photo);
     group->push_back(video);
     group->push_back(film);
-    gestion->printMultimedia("photo");
-    gestion->printMultimedia("photo20");
+    gestion->printMultimedia("photo", std::cout) ;
+    gestion->printMultimedia("photo20" , std::cout);
     return 0;   
 
 }
+
 #endif
-#ifdef VERSION_2
+
+#ifdef VERSION_AVEC_SERVEUR
 
 #include <sstream>
-//#include "tcpserver.h"
+#include "tcpserver.h"
 
+const int PORT = 3331;
 
 int main(int argc, const char *argv[]){
+    Managing *gestion = new Managing();
+    shared_ptr<Group> group1 = gestion->createGroup("group1");
+    shared_ptr<Photo> photo1 = gestion->createPhoto("photo1", "./data/photo1.jpg", 10, 10);
+    shared_ptr<Video> video2 = gestion->createVideo("video1", "./data/video1.mp4", 5);
+    int *tabDurations = new int[2]{50,60 };
+    shared_ptr<Film> movie1 = gestion->createFilm("film1", "./data/", 110, 2, tabDurations);
+    group1->push_back(photo1);
+    group1->push_back(video2);
+    group1->push_back(movie1);
+
+    // Création d'un protocole de connexion
+    auto* server = new TCPServer( [&](std::string const& request, std::string& response) {
+
+        stringstream srequest {request};
+        stringstream sresponse {};
+
+        //découpage de la requete
+        string action {};
+        string name {};
+        
+        srequest >> action;
+        srequest >> name;
+        
+        //Recherche d'un objet multimedia
+        if (action == "searchMultimedia"){ 
+            auto result = gestion->searchMultimedia(name , sresponse);
+            if (result == nullptr){
+                response = sresponse.str() + "\n";
+            } else {
+                result->print(sresponse);
+                response = sresponse.str() + "\n";
+            }
+        //Recherche d'un groupe
+        } else if (action == "searchGroup"){ 
+            auto result = gestion->searchGroup(name, sresponse);
+            if (result == nullptr){
+                response = sresponse.str() + "\n";
+            } else {
+                result->printGroup(sresponse);
+                response = sresponse.str() + "\n";
+            }
+        //Affichage d'un multimedia
+        }else if (action == "printMultimedia") {
+            gestion->printMultimedia(name, sresponse);
+            response = sresponse.str() + "\n";
+        }
+        //Affichage d'un groupe
+        else if (action == "printGroup") {
+            gestion->printGroup(name, sresponse);
+            response = sresponse.str() + "\n";
+        }
+        //Jouer un multimedia
+        else if (action == "play"){
+            auto result = gestion->searchMultimedia(name, sresponse);
+            if (result == nullptr){
+                response = sresponse.str() + "\n";
+            }else{
+                result->play();
+                response = "Affichage ok \n";
+            }
+        }
+        //Quitter la connexion
+        else if (action == "exit"){
+            response = "Fermeture de connexion.\n";
+            return false;
+        }
+        else {
+            response = "Erreur: requete non comprise";
+        }
+
+        std::cerr << "Reponse a la requete:" << response << std::endl;
+
+        return true;
+    });
+
+    //gestion de la connexion
+    std::cout << "Lancement du serveur sur le port: " << PORT << std::endl;
+    int status = server->run(PORT);
+
+    if (status < 0){
+        std::cerr << "Lancement impossible du serveur sur le port " << PORT << ", status: " << status << std::endl;
+        return 1;
+    }
+    
     return 0;
+   
 }
 
 #endif
