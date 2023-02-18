@@ -74,17 +74,18 @@ public:
     MultimediaPtr searchMultimedia(std::string name , std::ostream & ostream) const;
 
     /**
-     * @brief affichage d'un objet multimedia à partir de son nom
-     * @param name
-     */
-    void printMultimedia(std::string name, std::ostream & ostream) const;
-
-    /**
      * @brief Recherche d'un groupe à partir de son nom
      * @param name
      * @return GroupPtr
      */
     GroupPtr searchGroup(std::string name, std::ostream & ostream) const;
+
+
+    /**
+     * @brief affichage d'un objet multimedia à partir de son nom
+     * @param name
+     */
+    void printMultimedia(std::string name, std::ostream & ostream) const;
 
     /**
      * @brief Affichage d'un groupe à partir de son nom

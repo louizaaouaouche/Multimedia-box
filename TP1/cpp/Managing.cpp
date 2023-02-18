@@ -39,20 +39,11 @@ GroupPtr Managing::createGroup(std::string name){
 MultimediaPtr Managing::searchMultimedia(std::string name , std::ostream & ostream) const{
     auto idx = multimediasTab.find(name); 
     if (idx == multimediasTab.end()){ 
-        ostream << "Erreur: Multimedia introuvable.";
+        ostream << "Erreur: Multimedia introuvable";
         return nullptr;
     } else {
         
         return idx -> second ;
-    }
-}
-
-void Managing::printMultimedia(std::string name , std::ostream & ostream) const{
-    auto idx = multimediasTab.find(name);
-    if (idx == multimediasTab.end()){ 
-        ostream << "Erreur : Multimedia introuvable.";
-    } else {
-        return idx -> second -> print(std::cout);
     }
 }
 
@@ -66,14 +57,25 @@ GroupPtr Managing::searchGroup(std::string name, std::ostream & ostream) const{
     }
 }
 
+
+void Managing::printMultimedia(std::string name , std::ostream & ostream) const{
+    auto idx = multimediasTab.find(name);
+    if (idx == multimediasTab.end()){ 
+        ostream << "Erreur : Multimedia introuvable";
+    } else {
+        idx -> second -> print(ostream);
+    }
+}
+
 void Managing::printGroup(std::string name,std::ostream & ostream) const{
     auto idx = groupsTab.find(name);
     if (idx == groupsTab.end()){
         ostream << "Erreur : groupe introuvable";
     } else {
-        idx -> second -> printGroup(std::cout);
+        idx -> second -> printGroup(ostream);
     }
 }
+
 
 void Managing::play(std::string name, std::ostream & ostream) const{
     auto idx = multimediasTab.find(name);

@@ -24,7 +24,7 @@ public:
 
     //Destructeur
     ~Photo(){
-        std::cout << "Suppression de photo " << getName() << " - ok\r" << std::endl;
+        std::cout << "Suppression de photo " << getName() << " - ok";
     };
     
 
@@ -47,7 +47,7 @@ public:
     //Afficheur
     void print(std::ostream & ostream)const override {
         Multimedia::print(ostream);
-        ostream << "Latitude:"  << this->latitude << ". Longitude: "<< this->longitude << std::endl;
+        ostream << " Latitude:"  << this->latitude << ". Longitude: "<< this->longitude;
     };
 
     //Lecteur

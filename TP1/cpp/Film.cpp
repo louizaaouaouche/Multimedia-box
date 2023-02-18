@@ -28,9 +28,9 @@ void Film::setTabDurations( const int* tabDurations_ , int length_){
 
 
 void Film::print(std::ostream & ostream) const{
-    ostream << "Nombre de chapitres : " << length << "\n" ;
+    ostream << "Nombre de chapitres : " << length << " | " ;
     for (int i=0 ; i<length ; i++){
-        ostream << "  Duree du chapitre numero " << i+1 << "= " << tabDurations[i] << "\n";
+        ostream << "  Duree du chapitre numero " << i+1 << " = " << tabDurations[i] << " | ";
     }
 }
 

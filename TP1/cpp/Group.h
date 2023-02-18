@@ -54,9 +54,7 @@ public:
     void printGroup(std::ostream &ostream){
         ostream << "-- Affichage du groupe : " << name;
         for (auto i = this->begin() ; i != this->end() ; i++ ){
-            std::cout <<"\r" <<std::endl;
             (*i) -> print(ostream);
-            
         }
     }
 };

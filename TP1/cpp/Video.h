@@ -40,7 +40,7 @@ public:
     //Afficheur
     void print(std::ostream & ostream)const override {
         Multimedia::print(ostream);
-        ostream << "Duration:"  << this->duration  << std::endl;
+        ostream << " Duration:"  << this->duration;
     };
 
     //Lecteur
