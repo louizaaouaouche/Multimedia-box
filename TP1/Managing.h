@@ -28,6 +28,7 @@ private:
 public:
 
     Managing();
+
     /**
      * @brief crée un objet photo
      * @param name
@@ -107,7 +108,7 @@ public:
      * @brief supprime un groupe à partir de son nom
      * @param name
      */
-    void removeGroup(string name);
+    void removeGroup(std::string name);
 };
 
 #endif // MANAGING_H

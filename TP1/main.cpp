@@ -1,7 +1,9 @@
-//
-// main.cpp
-// Created on 13/12/2022
-//
+/**
+ * @file main.cpp
+ * @author Louiza AOUAOUCHE
+ */
+
+#define VERSION_2
 
 #include <iostream>
 #include <vector>
@@ -13,7 +15,7 @@
 #include "Managing.h"
 using namespace std;
 
-
+#ifdef VERSION_1
 int main(int argc, const char* argv[]){
     /*
     //PART 1 to 3
@@ -89,19 +91,32 @@ int main(int argc, const char* argv[]){
     */  
 
     //PART 10
-    /**/
+    
     std::cout << "--- PARTIE 10 : GESTION DES DONNEES ---" << std::endl;
     
-    Managing *gestion = new Managing();
-    shared_ptr<Photo> photo = gestion->createPhoto("photo", "./data/photo1.jpg", 0.2, 0.1);
-    shared_ptr<Video> video = gestion->createVideo("video", "./data/video1.mp4", 3);
+    Managing* gestion = new Managing();
+    std::shared_ptr<Photo> photo(gestion->createPhoto("photo", "./data/photo1.jpg", 3, 3));
+    std::shared_ptr<Video> video = gestion->createVideo("video", "./data/video1.mp4", 3);
     int *tabDurations = new int[2]{60, 50};
-    shared_ptr<Film> film = gestion->createFilm("film", "./data/", 110, 2, tabDurations);
-    shared_ptr<Group> group = gestion->createGroup("group");
+    std::shared_ptr<Film> film = gestion->createFilm("film", "./data/", 110, 2, tabDurations);
+    std::shared_ptr<Group> group = gestion->createGroup("group");
     group->push_back(photo);
     group->push_back(video);
     group->push_back(film);
     gestion->printMultimedia("photo");
+    gestion->printMultimedia("photo20");
     return 0;   
 
 }
+#endif
+#ifdef VERSION_2
+
+#include <sstream>
+//#include "tcpserver.h"
+
+
+int main(int argc, const char *argv[]){
+    return 0;
+}
+
+#endif

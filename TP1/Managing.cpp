@@ -47,16 +47,16 @@ MultimediaPtr Managing::searchMultimedia(std::string name) const{
     }
 }
 
-void Managing::printMult(std::string name) const{
+void Managing::printMultimedia(std::string name) const{
     auto idx = multimediasTab.find(name);
     if (idx == multimediasTab.end()){ 
         std::cout  << "Error not found";
     } else {
-        return idx -> second -> printVariables(std::cout);
+        return idx -> second -> print(std::cout);
     }
 }
 
-GrPtr Managing::searchGroups(std::string name) const{
+GroupPtr Managing::searchGroup(std::string name) const{
     auto idx = groupsTab.find(name);
     if (idx == groupsTab.end()){
         std::cout  << "Error not found";
@@ -66,7 +66,7 @@ GrPtr Managing::searchGroups(std::string name) const{
     }
 }
 
-void Managing::printGroups(std::string name) const{
+void Managing::printGroup(std::string name) const{
     auto idx = groupsTab.find(name);
     if (idx == groupsTab.end()){
         std::cout << "Error not found";

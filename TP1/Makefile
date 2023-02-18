@@ -14,7 +14,7 @@ PROG = myprog
 #
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
 #
-SOURCES = Multimedia.cpp main.cpp Film.cpp
+SOURCES = Multimedia.cpp main.cpp Film.cpp Managing.cpp
 
 #
 # Fichiers objets (ne pas modifier sauf si l'extension n'est pas .cpp)
@@ -37,14 +37,13 @@ CXXFLAGS = -std=c++11 -Wall -g
 #
 # Options de l'editeur de liens
 #
-LDFLAGS = 
+LDFLAGS = 	
 
 #
 # Librairies a utiliser
 # Exemple: LDLIBS = -L/usr/local/qt/lib -lqt
 #
 LDLIBS = 
-
 
 ##########################################
 #
