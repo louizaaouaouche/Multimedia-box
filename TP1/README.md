@@ -2,21 +2,18 @@
 
 Le but de ce projet est de créer l'ébauche du logiciel d'une set-top box multimédia permettant de jouer de la musique, des vidéos, des films, d'afficher des photos, etc. Ce logiciel a été realisé par étapes, en se limitant à la déclaration et l'implémentation de quelques classes et fonctionnalités typiques que complétées progressivement. 
 
+# CPP
+
 ## 1e Etape: Démarrage
 La première étape consiste à mettre en place un environnement pour le projet:
 - Définir l'outil de programmation : VSCODE
 - Tester le fonctionnement du makefile (et à fortiori le fonctionnement du langage c++ sur la machine utilisée)
 
 ## 2e Etape: Classe de base
-On crée la classe de base Multimedia. Pour cela on aura deux fichiers:
-- *Multimedia.h* : contient initialement
-  - Deux variables d'instance: Le nom du multimedia (std::string) , le pathname associé (std::string). 
-  - Des méthodes classiques (Deux constructeurs, un destructeur, getters, setters)
-  - Une méthode d'afficage 
-- *Multimedia.cpp* : contient l'implémentation de ce qui a été déclaré dans le .h 
+On crée la classe de base Multimedia.
 
 ## 3e Etape: Programme de test
-Une fois que le Makefile a été modifié, on modifie le fichier *main.cpp* afin de tester la classe:
+Une fois que le Makefile a été modifié, on modifie le fichier *main.cpp* afin de tester la classe. Par exemple:
 ```cpp
 #include <iostream>
 #include "Multimedia.h"
@@ -60,7 +57,7 @@ On traite de manière uniforme une liste comprenant à la fois des photos et des
 - Pour que le tableau retourné par l'accesseur ne soit pas modifié, on précède la signature de la fonction par ```const``` et on renvoie une copie du tableau. Il faut que la copie en soit pas superficielle. Pour cela, on peut créer un opérateur de copie et surcharger l'opérateur d'affectation.
 
 ## 7e étape. Destruction et copie des objets
-- **Parmi les classes précédemment écrites quelles sont celles qu'il faut modifier afin qu'il n'y ait pas de fuite mémoire quand on détruit les objets ? **
+- **Parmi les classes précédemment écrites quelles sont celles qu'il faut modifier afin qu'il n'y ait pas de fuite mémoire quand on détruit les objets ?**
   - Seule la classe ```Film``` a un attribut alloué sur le tas. Il est important de s'assurer qu'il n'y ait pas de fuite de mémoire en appelant delete dans un destructeur pour la classe Film pour libérer la mémoire allouée avec new (tableau des durées).
 
 - **La copie d'objet peut également poser problème quand ils ont des variables d'instance qui sont des pointeurs. Quel est le problème et quelles sont les solutions ?**
@@ -78,7 +75,25 @@ Ajout des smarts pointers (shared_ptr).
 - **Les méthodes précédentes permettent d'assurer la cohérence de la base de données car quand on crée un objet on l'ajoute à la table adéquate. Par contre, ce ne sera pas le cas si on crée un objet directement avec new (il n'appartiendra à aucune table). Comment peut-on l'interdire, afin que seule la classe servant à manipuler les objets puisse en créer de nouveaux ?**
   -  Afin que la seule classe servant à manipuler les objets puisse en créer de nouveau il faut déclarer les constructeurs de classe ```Photo```, ```Video```, ```Film``` et ```Group``` en ```protected``` et également déclarer la classe Managing en tant que friend de celles-ci.
 ## 11e étape. Client / serveur
+Mise en place dans le ```main.cpp``` des opérations relatives aux Requêtes/Réponses du client/serveur.
 
-## 12e étape. Sérialisation / désérialisation
+## 12e étape. Sérialisation / désérialisation (facultative)
+Non traitée.
 
-## 13e étape. Traitement des erreurs
+## 13e étape. Traitement des erreurs (facultative)
+Non traitée.
+
+# JAVA SWING
+
+## 1e Etape: Fenêtre principale et quelques interacteurs
+- **Lancez votre programme, cliquez plusieurs fois sur les deux premiers bouton, retaillez la fenêtre. Que constate-t'on ?**
+  - Lorsqu'on clique plusieurs fois, le texte dépasse de la Frame. Afin de pallier à ce problème, on met la zone textuelle dans un ```JScrollPane``` qui permet le redimensionnement automatique.
+  
+## 2e Etape: Menus, barre d'outils et actions
+Afin de réaliser un Menu et une barre d'outils j'ai opté pour la stratégie des actions utilisant des sous-classes de ```AbstractAction```. En plus des actions enclenchées par les boutons de ```Recherche``` et ```Play```, j'ai ajouté au Menu et la barre d'outils un autre Item noté ```Liste``` qui permet d'avoir un visuel des médias/groupes instanciés. 
+
+## 3e Etape: Interaction client/serveur
+Afin d'inclure le travail fait dans la partie CPP, on inclue la classe ```Client.java```. Les boutons permettent ainsi d'actionner les fonctions c++. Pour le recherche et la lecture j'ai rajouté une boite de dialogue qui permet de saisir le média/groupe à traiter.
+
+## 4e Etape (obligatoire): Créer un Makefile
+Le lancement du programme s'effectue en tapant ```make run``` sur le programme c++ (pour ouvrir une connexion du Serveur), puis ```make run``` sur le programme Java afin de lancer client.
