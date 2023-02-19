@@ -14,10 +14,12 @@
  * @brief Classe Photo heritant de l'objet Multimedia
  */
 class Photo:public Multimedia{
+friend class Managing;
 private:
     double latitude{};
     double longitude{};
-public:
+
+protected:
 
     /**
      * @brief Constructeur par defaut de l'Objet Photo
@@ -43,7 +45,7 @@ public:
         std::cout << "Suppression de photo " << getName() << " - ok"<< std::endl;;
     };
     
-
+public:
     /**
      * @brief Getter de la Latitude de l'Objet
      * 

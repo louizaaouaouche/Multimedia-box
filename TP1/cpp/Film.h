@@ -14,6 +14,7 @@
  * @brief Classe Film heritant de la classe Video
  */
 class Film : public Video{
+friend class Managing;
 
 private :
     int length = 0 ; //le nombre de chapitres du film

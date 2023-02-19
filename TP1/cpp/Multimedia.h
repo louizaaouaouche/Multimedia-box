@@ -14,14 +14,15 @@ class Multimedia{
 private:
     std::string name;
     std::string pathname;
-public:
+
+protected://
     //Constructeurs
     Multimedia();
     Multimedia(std::string name , std::string pathname);
 
     //Destructeur
     ~Multimedia();
-
+public:
     //Getters
     std::string getName()const;
     std::string getPathname()const;

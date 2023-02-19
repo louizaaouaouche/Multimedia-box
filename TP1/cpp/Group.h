@@ -16,6 +16,7 @@
  * @brief Classe Groupe heritant de liste de pointeurs vers Multimedia
  */
 class Group : public std::list<MultimediaPtr>{
+friend class Managing;
 private :
     std::string name ;
     

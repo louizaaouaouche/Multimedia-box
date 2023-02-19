@@ -15,6 +15,7 @@
  * @brief Classe Video heritant de l'objet Multimedia
  */
 class Video:public Multimedia{
+friend class Managing;
 private:
     unsigned int duration{};
 public:
