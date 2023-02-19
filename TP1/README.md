@@ -73,7 +73,7 @@ Ajout des smarts pointers (shared_ptr).
 
 ## 10e étape. Gestion cohérente des données
 - **Les méthodes précédentes permettent d'assurer la cohérence de la base de données car quand on crée un objet on l'ajoute à la table adéquate. Par contre, ce ne sera pas le cas si on crée un objet directement avec new (il n'appartiendra à aucune table). Comment peut-on l'interdire, afin que seule la classe servant à manipuler les objets puisse en créer de nouveaux ?**
-  -  Afin que la seule classe servant à manipuler les objets puisse en créer de nouveau il faut déclarer les constructeurs de classe ```Photo```, ```Video```, ```Film``` et ```Group``` en ```protected``` et également déclarer la classe Managing en tant que friend de celles-ci.
+  -  Afin que la seule classe servant à manipuler les objets puisse en créer de nouveau il faut déclarer les constructeurs de classe ```Photo```, ```Video```, ```Film``` et ```Group``` en privé et mettre la classe ```Managing``` en tant qu'ami de celles-ci.
 ## 11e étape. Client / serveur
 Mise en place dans le ```main.cpp``` des opérations relatives aux Requêtes/Réponses du client/serveur.
 
