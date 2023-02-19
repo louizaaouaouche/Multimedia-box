@@ -1,4 +1,4 @@
-# INF224
+# INF224 - AOUAOUCHE Louiza
 
 Le but de ce projet est de créer l'ébauche du logiciel d'une set-top box multimédia permettant de jouer de la musique, des vidéos, des films, d'afficher des photos, etc. Ce logiciel a été realisé par étapes, en se limitant à la déclaration et l'implémentation de quelques classes et fonctionnalités typiques que complétées progressivement. 
 
