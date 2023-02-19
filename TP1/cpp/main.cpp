@@ -32,14 +32,14 @@ int main(int argc, const char* argv[]){
     */
 
     //PART 4
-    
+    /*
     std::cout << "\n\n--- PARTIE 4 : PHOTO/VIDEO ---\n" << std::endl;
     Photo *photo1 = new Photo("photo1","../data/photo1.jpg", 5, 10);
     photo1->print(std::cout);
     Video *video1 = new Video("video1","../data/video1.mp4", 5);
     video1->setDuration(4);
     video1->print(std::cout);
-
+    */
     //PART 5
     /* //OTER LA MISE EN COMMENTAIRES POUR EXECUTER (jouer une photo/jouer une video)
     std::cout << "\n\n--- PARTIE 5 : POLYMORPHISME ---\n" << std::endl;
@@ -52,7 +52,7 @@ int main(int argc, const char* argv[]){
     }
     */
     //PART 6 / 7
-    
+    /*
     std::cout << "\n\n--- PARTIE 6 - 7 : FILMS & TABLEAUX ---\n" << std::endl;
     
     int *tabDurations_0 = new int[2]{22, 20};
@@ -70,9 +70,9 @@ int main(int argc, const char* argv[]){
     //On voit comment cela influe sur film
     film2->setTabDurations(tabDurations_0, 2);
     film_0->print(std::cout);
-    
+    */
     //PART 8 & 9
-    
+    /*
     std::cout << "\n\n--- PARTIE 8 - 9 : GROUPE ---\n" << std::endl;
     Group *group1 = new Group("group 1");
     Group *group2 = new Group("group 2");   
@@ -85,7 +85,7 @@ int main(int argc, const char* argv[]){
     group2->printGroup(std::cout);
     delete group1;
     delete group2;
-     
+    */     
 
     //PART 10
     
@@ -101,7 +101,8 @@ int main(int argc, const char* argv[]){
     group->push_back(video);
     group->push_back(film);
     gestion->printMultimedia("photo", std::cout) ;
-    gestion->printMultimedia("photo20" , std::cout);
+    std::cout << "\n" << std::endl;
+    gestion->printGroup("group" , std::cout);
 
     return 0;   
 
