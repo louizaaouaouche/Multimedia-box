@@ -12,7 +12,9 @@
 #include "Multimedia.h"
 
 
-
+/**
+ * @brief Classe Groupe heritant de liste de pointeurs vers Multimedia
+ */
 class Group : public std::list<MultimediaPtr>{
 private :
     std::string name ;

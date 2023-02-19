@@ -6,9 +6,6 @@
 
 #include "Managing.h"
 
-/**
- * @brief constructeur par défaut de Managing
- */
 Managing::Managing(){}
 
 PhotoPtr Managing::createPhoto(std::string name, std::string fileName, double latitude, double longitude){

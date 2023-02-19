@@ -10,6 +10,9 @@
 #include <memory>
 #include "Video.h"
 
+/**
+ * @brief Classe Film heritant de la classe Video
+ */
 class Film : public Video{
 
 private :
@@ -17,16 +20,18 @@ private :
     int * tabDurations = new int[length];//Tableau contenant la durée de chacun des chapitre
 
 public:
-    //Constructeur par défaut
+    /**
+     * @brief Constructeur par défaut de l'objet Film
+     */
     Film(){}
 
     /**
      * @brief Constructeur d'un nouvel objet Film
-     * @param name
-     * @param fileName 
-     * @param duration 
-     * @param length_ 
-     * @param tabDurations_ 
+     * @param name nom du film
+     * @param fileName chemin vers le film
+     * @param duration duree totale du film
+     * @param length_ nombre de chapitres
+     * @param tabDurations_ duree de chacun des chapitres
      */
     Film(std::string name, std::string fileName,int duration, int length_, const int * tabDurations_) : Video(name,fileName,duration){
         length = length_;
