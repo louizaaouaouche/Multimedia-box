@@ -19,7 +19,7 @@ private:
     double latitude{};
     double longitude{};
 
-protected:
+protected: 
 
     /**
      * @brief Constructeur par defaut de l'Objet Photo
@@ -38,6 +38,8 @@ protected:
         this->longitude = longitude;
     };
 
+    
+public:
     /**
      * @brief Destructeur de l'Objet Photo
      */
@@ -45,7 +47,6 @@ protected:
         std::cout << "Suppression de photo " << getName() << " - ok"<< std::endl;;
     };
     
-public:
     /**
      * @brief Getter de la Latitude de l'Objet
      * 

@@ -20,7 +20,7 @@ friend class Managing;
 private :
     std::string name ;
     
-public:
+protected:
     /**
      * @brief Constructeur par défaut du groupe
      */
@@ -33,7 +33,7 @@ public:
     Group(std::string name_){
         name = name_;
     }
-
+public:
     /**
      * Destructeur de groupe
      */

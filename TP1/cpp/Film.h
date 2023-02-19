@@ -20,7 +20,7 @@ private :
     int length = 0 ; //le nombre de chapitres du film
     int * tabDurations = new int[length];//Tableau contenant la durée de chacun des chapitre
 
-public:
+protected:
     /**
      * @brief Constructeur par défaut de l'objet Film
      */
@@ -38,7 +38,7 @@ public:
         length = length_;
         this->setTabDurations(tabDurations_,length_);
     }
-
+public:
     /**
      * @brief Destructeur de Film
      */

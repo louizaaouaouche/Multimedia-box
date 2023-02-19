@@ -18,7 +18,7 @@ class Video:public Multimedia{
 friend class Managing;
 private:
     unsigned int duration{};
-public:
+protected:
     /**
      * @brief Constructeur par defaut de l'objet Video
      */
@@ -35,7 +35,7 @@ public:
     {
         this->duration = duration;
     };
-
+public:
     /**
      * @brief Destructeur de l'objet Video
      */
